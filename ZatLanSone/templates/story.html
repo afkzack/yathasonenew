@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1 style="padding:5px;margin-top:5px;">All Stories</h1>
+
+  {% for s in story %}
+
+<div class="stories" style="width:126px;height:190px;border-radius:3px;margin-left:5px;float:left;margin-bottom:55px;margin-top:5px;">
+    <a href="{% url 'episode' s.id %}"><img src="{{s.image.url}}" class="rounded" alt="stories" style="width:126px;height:150px;border-radius:3px;padding:5px;"></a>
+    <a href="{% url 'episode' s.id %}" style="text-decoration:none;"><h5 class="text-center" style="color:#ffffff;padding-top:2px;">{{s.name}}</h5></a>
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

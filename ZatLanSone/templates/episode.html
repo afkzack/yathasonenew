@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div style="position:absolute;left:50%;margin-left:-200px;width:390px;padding:5px;">
+
+	<div class="episodes" style="width:390px;height:220px;border-radius:3px;">
+    <img src="{{story.cover.url}}" class="rounded" alt="stories" style="width:390px;height:220px;border-radius:3px;padding:5px;">
+</div>
+
+<div class="button_group" style="margin-bottom:10px;margin-top:10px;">	
+	Updated - <button type="button" class="btn btn-success">{{story.created_date}}</button>
+</div>
+
+	{% for e in story.eps.filter %}
+
+		<a href="{% url 'content' e.id %}" style="text-decoration: none;">
+			<div class="episodes" style="height:60px;background-color:rgb(27,27,28);color:#ffffff;border-style:ridge;border-width:thin;padding:20px;">
+               <p>{{e.name}} | Episode - {{e.ep_num}}</p>
+			</div>
+		</a>
+
+	{% endfor %}
+
+</div>
+
+{% endblock %}
